@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holidays in the Philippines</title>
+  <style>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+<body>
+    <h4>Chosen Holiday Date:</h4>
+    <p class="chosen-holiday-date"></p>
+
+    <script>
+
+        let holidays = new Map();
+
+        holidays.set("New Year's Day", "January 1");
+        holidays.set("Maundy Thursday", "Date varies, usually in March or April");
+        holidays.set("Good Friday", "Date varies, usually in March or April");
+        holidays.set("Araw ng Kagitingan (Day of Valor)", "April 9");
+        holidays.set("Labor Day", "May 1");
+        holidays.set("Independence Day", "June 12");
+        holidays.set("National Heroes Day", "Last Monday of August");
+        holidays.set("Bonifacio Day", "November 30");
+        holidays.set("Christmas Day", "December 25");
+        holidays.set("Rizal Day", "December 30");
+
+        document.querySelector('.chosen-holiday-date').innerHTML = holidays.get("Independence Day") + "<br> <br>";
+
+        document.write('<h4>All Holidays:</h4>');
+
+        holidays.forEach((value, key) => {
+        document.write(`<p>${key}: ${value}</p>`);
+        });
+
+        document.write("<br> <b>Keys:</b> <br>");
+        for (let key of holidays.keys()) {
+        document.write(key + '<br>');
+        }
+
+        document.write("<br> <b>Values:</b> <br>");
+        for (let value of holidays.values()) {
+        document.write(value + "<br>");
+        }
+        
+        holidays.delete("Labor Day");
+        document.write("<br> <b>Is Labor Day present?:</b> <br>");
+        let valuePresence = "";
+        if (holidays.has("Labor Day") === true) {
+            valuePresence = "Yes";
+        } else {
+            valuePresence = "No";
+        }
+        document.write(valuePresence);
+
+    </script>
+    </body>
+</html>
